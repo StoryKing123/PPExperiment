@@ -1,0 +1,2 @@
+C:\Users\ZhitaoXuan(ZHIT)\workspace\code\dotnet\PPExperiment\Plugin\CustomPlugin\bin\Debug\net462\publish\CustomPlugin.dll
+C:\Users\ZhitaoXuan(ZHIT)\workspace\code\dotnet\PPExperiment\Plugin\CustomPlugin\bin\Debug\net462\publish\CustomPlugin.pdb

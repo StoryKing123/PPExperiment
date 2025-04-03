@@ -1,0 +1,8 @@
+is_global = true
+build_property.RootNamespace = Plugin
+build_property.ProjectDir = C:\Users\ZhitaoXuan(ZHIT)\workspace\code\dotnet\PPExperiment\Plugin\Plugin\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.CsWinRTUseWindowsUIXamlProjections = false
+build_property.EffectiveAnalysisLevelStyle = 
+build_property.EnableCodeStyleSeverity = 
