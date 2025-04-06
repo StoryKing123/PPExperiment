@@ -45,7 +45,7 @@ namespace PPConcurrentTest.Controllers
         }
 
         [HttpPost("records/{entityName}")]
-        public async Task<IActionResult> CreateRecord(
+        public  IActionResult CreateRecord(
             string entityName,
             [FromBody] Dictionary<string, object> attributes)
         {

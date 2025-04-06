@@ -10,12 +10,14 @@ namespace PPConcurrentTest.Services
     public class ProductService : IProductService
     {
         private readonly ServiceClient _serviceClient;
+        private readonly DataverseClientPool _clientPool;
         private readonly ILogger<ProductService> _logger;
 
-        public ProductService(DataverseClientService dataverseService, ILogger<ProductService> logger)
+        public ProductService(DataverseClientService dataverseService, ILogger<ProductService> logger, DataverseClientPool clientPool)
         {
             _serviceClient = dataverseService.Client;
             _logger = logger;
+            _clientPool = clientPool;
         }
 
         public async Task<Guid> CreateProductAsync()
@@ -159,8 +161,9 @@ namespace PPConcurrentTest.Services
                 Columns = new ColumnSet(Supplier.ZZZ_SupplierName),
                 EntityAlias = "supplier"
             });
+            var products = await _clientPool.ExecuteWithClientAsync(async client => { return await client.RetrieveMultipleAsync(productQuery); });
 
-            var products = await _serviceClient.RetrieveMultipleAsync(productQuery);
+            // var products = await _serviceClient.RetrieveMultipleAsync(productQuery);
 
             var productList = products.Entities.Select(entity => new
             {
