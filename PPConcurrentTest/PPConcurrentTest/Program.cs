@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddLogging();  // 确保日志服务已注册
 builder.Services.AddSingleton<DataverseClientService>();
 builder.Services.AddSingleton<DataverseClientPool>();
+// builder.Services.AddSingleton<NewDataverseClientPool>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -18,6 +19,8 @@ using (var scope = app.Services.CreateScope())
 {
    var dataverseService = scope.ServiceProvider.GetRequiredService<DataverseClientService>();
    var dataverseClientPool = scope.ServiceProvider.GetRequiredService<DataverseClientPool>();
+    //  var dataverseClientPool = scope.ServiceProvider.GetRequiredService<NewDataverseClientPool>();
+
    // 服务已经被实例化，构造函数中的初始化代码会被执行
 }
 

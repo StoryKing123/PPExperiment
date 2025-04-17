@@ -4,6 +4,7 @@ using Microsoft.Xrm.Sdk.Query;
 using PPConcurrentTest.Models;
 using Bogus;
 using Microsoft.Xrm.Sdk.Messages;
+using System.Net.Http.Headers;
 
 namespace PPConcurrentTest.Services
 {
@@ -161,8 +162,102 @@ namespace PPConcurrentTest.Services
                 Columns = new ColumnSet(Supplier.ZZZ_SupplierName),
                 EntityAlias = "supplier"
             });
-            var products = await _clientPool.ExecuteWithClientAsync(async client => { return await client.RetrieveMultipleAsync(productQuery); });
+            var products = await _clientPool.ExecuteWithClientAsync(async client =>
+            {
 
+                Console.WriteLine("got client and start query");
+
+                string logicalName = Product.EntityLogicalName;
+                var newRecord = new Entity { LogicalName = logicalName };
+                var faker = new Faker();
+
+
+                // Add all zzz_ fields with faker data
+                newRecord[Product.ZZZ_ProductName] = faker.Commerce.ProductName();
+                newRecord[Product.ZZZ_Description] = faker.Commerce.ProductDescription();
+                newRecord[Product.ZZZ_Category] = new OptionSetValue(993700000);
+                newRecord[Product.ZZZ_Color] = faker.Commerce.Color();
+                newRecord[Product.ZZZ_Price] = new Money(decimal.Parse(faker.Commerce.Price()));
+                newRecord[Product.ZZZ_IsAvailable] = faker.Random.Bool();
+                newRecord[Product.ZZZ_Rating] = faker.Random.Int(1, 5);
+                newRecord[Product.ZZZ_StockQuantity] = faker.Random.Int(0, 1000);
+                newRecord[Product.ZZZ_Weight] = faker.Random.Decimal(1, 100);
+                newRecord[Product.ZZZ_WarrantyPeriod] = faker.Random.Int(0, 60);
+                newRecord[Product.ZZZ_ReleasedAte] = faker.Date.Past();
+
+                // Query a random supplier
+                var supplierQuery = new QueryExpression(Supplier.EntityLogicalName)
+                {
+                    ColumnSet = new ColumnSet(Supplier.Id)
+                };
+
+                var suppliers = await client.RetrieveMultipleAsync(supplierQuery);
+                if (suppliers.Entities.Any())
+                {
+                    newRecord[Product.ZZZ_SupplierId] = new EntityReference(
+                        Supplier.EntityLogicalName,
+                        suppliers.Entities[faker.Random.Int(0, suppliers.Entities.Count - 1)].Id
+                    );
+                }
+
+                await client.CreateAsync(newRecord);
+                HttpClient httpClient = new HttpClient();
+                httpClient.BaseAddress = new Uri("https://org401d6a6f.crm5.dynamics.com/api/data/v9.2/");
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.CurrentAccessToken);
+                // 发送请求
+                HttpResponseMessage response = await httpClient.GetAsync("WhoAmI");
+                // 查看响应 header
+                foreach (var header in response.Headers)
+                {
+                    Console.WriteLine($"{header.Key}: {string.Join(",", header.Value)}");
+                }
+
+
+
+
+                var res = await client.RetrieveMultipleAsync(productQuery);
+
+                return res;
+
+            });
+
+
+
+
+            // string logicalName = Product.EntityLogicalName;
+            // var newRecord = new Entity { LogicalName = logicalName };
+            // var faker = new Faker();
+
+
+            // // Add all zzz_ fields with faker data
+            // newRecord[Product.ZZZ_ProductName] = faker.Commerce.ProductName();
+            // newRecord[Product.ZZZ_Description] = faker.Commerce.ProductDescription();
+            // newRecord[Product.ZZZ_Category] = new OptionSetValue(993700000);
+            // newRecord[Product.ZZZ_Color] = faker.Commerce.Color();
+            // newRecord[Product.ZZZ_Price] = new Money(decimal.Parse(faker.Commerce.Price()));
+            // newRecord[Product.ZZZ_IsAvailable] = faker.Random.Bool();
+            // newRecord[Product.ZZZ_Rating] = faker.Random.Int(1, 5);
+            // newRecord[Product.ZZZ_StockQuantity] = faker.Random.Int(0, 1000);
+            // newRecord[Product.ZZZ_Weight] = faker.Random.Decimal(1, 100);
+            // newRecord[Product.ZZZ_WarrantyPeriod] = faker.Random.Int(0, 60);
+            // newRecord[Product.ZZZ_ReleasedAte] = faker.Date.Past();
+
+            // // Query a random supplier
+            // var supplierQuery = new QueryExpression(Supplier.EntityLogicalName)
+            // {
+            //     ColumnSet = new ColumnSet(Supplier.Id)
+            // };
+
+            // var suppliers = await _serviceClient.RetrieveMultipleAsync(supplierQuery);
+            // if (suppliers.Entities.Any())
+            // {
+            //     newRecord[Product.ZZZ_SupplierId] = new EntityReference(
+            //         Supplier.EntityLogicalName,
+            //         suppliers.Entities[faker.Random.Int(0, suppliers.Entities.Count - 1)].Id
+            //     );
+            // }
+
+            // await _serviceClient.CreateAsync(newRecord);
             // var products = await _serviceClient.RetrieveMultipleAsync(productQuery);
 
             var productList = products.Entities.Select(entity => new
