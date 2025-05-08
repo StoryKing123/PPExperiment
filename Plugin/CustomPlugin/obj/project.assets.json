@@ -70,7 +70,7 @@
           "build/Microsoft.NETFramework.ReferenceAssemblies.net462.targets": {}
         }
       },
-      "Microsoft.PowerApps.MSBuild.Plugin/1.41.1": {
+      "Microsoft.PowerApps.MSBuild.Plugin/1.42.1": {
         "type": "package",
         "build": {
           "build/Microsoft.PowerApps.MSBuild.Plugin.props": {},
@@ -649,10 +649,10 @@
         "microsoft.netframework.referenceassemblies.net462.nuspec"
       ]
     },
-    "Microsoft.PowerApps.MSBuild.Plugin/1.41.1": {
-      "sha512": "ho/oBNDh2qWqLYa/BlhU/OmniwcqWchKir7jMwTyXhrafdZXxrqXDztsWRpEw8A+V3ZvAVl1229QxvJYe5zRUA==",
+    "Microsoft.PowerApps.MSBuild.Plugin/1.42.1": {
+      "sha512": "DT/roHkFQ3DVdaKzlm3yrFXBuIi/A5cxij+aHeehAORzHYXcFCkk8tlrYYFfPwMWB+hEbvIyi0+sLweAJCNUMA==",
       "type": "package",
-      "path": "microsoft.powerapps.msbuild.plugin/1.41.1",
+      "path": "microsoft.powerapps.msbuild.plugin/1.42.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -662,7 +662,7 @@
         "build/Microsoft.PowerApps.MSBuild.Plugin.targets",
         "buildMultiTargeting/Microsoft.PowerApps.MSBuild.Plugin.props",
         "buildMultiTargeting/Microsoft.PowerApps.MSBuild.Plugin.targets",
-        "microsoft.powerapps.msbuild.plugin.1.41.1.nupkg.sha512",
+        "microsoft.powerapps.msbuild.plugin.1.42.1.nupkg.sha512",
         "microsoft.powerapps.msbuild.plugin.nuspec",
         "tasks/Microsoft.PowerApps.MSBuild.Plugin.tasks",
         "tasks/net472/Microsoft.PowerPlatform.MSBuild.Telemetry.Tasks.dll",
@@ -703,7 +703,6 @@
         "tasks/net472/ppbtTelemetryRecorder/bt-uploader/System.ValueTuple.dll",
         "tasks/net472/ppbtTelemetryRecorder/bt-uploader/pacTelemetryUpload.exe",
         "tasks/net472/ppbtTelemetryRecorder/bt-uploader/pacTelemetryUpload.exe.config",
-        "tasks/net472/ppbtTelemetryRecorder/bt-uploader/pacTelemetryUpload.log",
         "tasks/net472/ppbtTelemetryRecorder/ppbtTelemetryRecorder.exe",
         "tasks/net472/ppbtTelemetryRecorder/ppbtTelemetryRecorder.exe.config",
         "tasks/net472/ppbtTelemetryRecorder/ppbtTelemetryRecorder.pdb",
@@ -1238,7 +1237,7 @@
             "version": "[1.*, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

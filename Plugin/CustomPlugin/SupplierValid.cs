@@ -28,7 +28,15 @@ namespace CustomPlugin
                         {
                             if (target.Contains("zzz_suppliername"))
                             {
+
+
                                 string name = (string)target["zzz_suppliername"];
+                                string oldName = (string)context.PreEntityImages["preSupplier"]["zzz_suppliername"];
+                                if (context.MessageName.ToLower() == "update" && name.StartsWith(oldName))
+                                {
+                                    throw new InvalidPluginExecutionException("old name can not include with 'old'");
+                                }
+
                                 if (name.StartsWith("11"))
                                 {
                                     tracingService.Trace("Supplier name is invalid1");

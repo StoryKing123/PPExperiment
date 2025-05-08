@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "/TxGTaANEz0=",
+  "dgSpecHash": "x2Pmg2MPzXo=",
   "success": true,
   "projectFilePath": "C:\\Users\\ZhitaoXuan(ZHIT)\\workspace\\code\\dotnet\\PPExperiment\\Plugin\\CustomPlugin\\CustomPlugin.csproj",
   "expectedPackageFiles": [
@@ -8,7 +8,7 @@
     "C:\\.nuget\\vc_packages\\microsoft.crmsdk.coreassemblies\\9.0.2.59\\microsoft.crmsdk.coreassemblies.9.0.2.59.nupkg.sha512",
     "C:\\.nuget\\vc_packages\\microsoft.netframework.referenceassemblies\\1.0.3\\microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
     "C:\\.nuget\\vc_packages\\microsoft.netframework.referenceassemblies.net462\\1.0.3\\microsoft.netframework.referenceassemblies.net462.1.0.3.nupkg.sha512",
-    "C:\\.nuget\\vc_packages\\microsoft.powerapps.msbuild.plugin\\1.41.1\\microsoft.powerapps.msbuild.plugin.1.41.1.nupkg.sha512",
+    "C:\\.nuget\\vc_packages\\microsoft.powerapps.msbuild.plugin\\1.42.1\\microsoft.powerapps.msbuild.plugin.1.42.1.nupkg.sha512",
     "C:\\.nuget\\vc_packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\.nuget\\vc_packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
     "C:\\.nuget\\vc_packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",

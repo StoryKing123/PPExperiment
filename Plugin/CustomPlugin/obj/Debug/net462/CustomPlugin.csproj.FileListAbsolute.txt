@@ -21,3 +21,4 @@ C:\Users\ZhitaoXuan(ZHIT)\workspace\code\dotnet\PPExperiment\Plugin\CustomPlugin
 C:\Users\ZhitaoXuan(ZHIT)\workspace\code\dotnet\PPExperiment\Plugin\CustomPlugin\obj\Debug\net462\CustomPl.59BAC4BC.Up2Date
 C:\Users\ZhitaoXuan(ZHIT)\workspace\code\dotnet\PPExperiment\Plugin\CustomPlugin\obj\Debug\net462\CustomPlugin.dll
 C:\Users\ZhitaoXuan(ZHIT)\workspace\code\dotnet\PPExperiment\Plugin\CustomPlugin\obj\Debug\net462\CustomPlugin.pdb
+C:\Users\ZhitaoXuan(ZHIT)\workspace\code\dotnet\PPExperiment\Plugin\CustomPlugin\obj\Debug\net462\CustomPlugin.sourcelink.json

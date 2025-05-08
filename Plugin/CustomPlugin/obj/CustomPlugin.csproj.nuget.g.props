@@ -7,13 +7,13 @@
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">C:\.nuget\vc_packages</NuGetPackageRoot>
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\.nuget\vc_packages;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.13.1</NuGetToolVersion>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.13.2</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <SourceRoot Include="C:\.nuget\vc_packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)\microsoft.powerapps.msbuild.plugin\1.41.1\build\Microsoft.PowerApps.MSBuild.Plugin.props" Condition="Exists('$(NuGetPackageRoot)\microsoft.powerapps.msbuild.plugin\1.41.1\build\Microsoft.PowerApps.MSBuild.Plugin.props')" />
+    <Import Project="$(NuGetPackageRoot)\microsoft.powerapps.msbuild.plugin\1.42.1\build\Microsoft.PowerApps.MSBuild.Plugin.props" Condition="Exists('$(NuGetPackageRoot)\microsoft.powerapps.msbuild.plugin\1.42.1\build\Microsoft.PowerApps.MSBuild.Plugin.props')" />
   </ImportGroup>
 </Project>
